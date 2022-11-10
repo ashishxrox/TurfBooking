@@ -1,0 +1,184 @@
+*{
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+
+/*HOMEPAGE*/
+.section1{
+	background: url('../images/bg.jpg');
+	background-size: cover;
+	background-position: fixed;
+
+	height: 100vh;
+}
+header{
+	display: flex;
+	flex-direction: row;
+	background: white;
+	align-items: center;
+
+}
+header h1{
+	font-family: 'Marck Script', cursive;
+	margin: 20px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	font-size: 50px;
+
+}
+header h1 span{
+	color: #38E54D;
+}
+
+.nav{
+	position: absolute;
+	right: 30px;
+	top: 25px;
+	display: flex;
+	align-items: center;
+}
+
+.nav ul{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+
+.nav ul li{
+	margin-left: 30px;
+	list-style-type: none;
+	font-size: 25px;
+}
+
+li a{
+	text-decoration: none;
+	color: black;
+}
+
+.log{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 45px;
+}
+
+.log .icon{
+	position: absolute;
+	top: -5px;
+	font-size:40px;
+	color: #38E54D;
+	margin-left: 5px;
+	transition: 1.2s;
+}
+.ico-name{
+	position: relative;
+	left: -5px;
+	transform: translateY(150%);
+	opacity: 0;
+	transition: 1.2s
+}
+
+.log:hover .icon{
+	/*transform: translateX(15px);*/
+	transform: translateY(-10px);
+}
+
+.log:hover .ico-name{
+	opacity: 1;
+	transform: translateY(50%);
+}
+
+
+.home-txt{
+	position: absolute;
+	top: 190px;
+	left: 400px;
+	font-size: 65px;
+	text-align: center;
+	font-family: 'Marck Script', cursive;
+}
+
+.home-txt p{
+	color: #38E54D;
+}
+
+#btn1{
+	position: absolute;
+	top: 375px;
+	right: 425px;
+}
+
+.btn{
+	cursor: pointer;
+	padding: 5px;
+	width: 150px;
+	height: 35px;
+	font-size: 18px;
+	font-weight: bold;
+	background-color: #38E54D;
+	border-radius: 15px;
+	transition: 0.5s;
+}
+
+.btn:hover{
+	background-color: black;
+	color: #38E54D;
+	border: 2px solid #38E54D;
+	border-radius: 15px;
+}
+
+
+/*LOGINPAGE*/
+
+.loginPage{
+	background: url('../images/loginbg.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: fixed;
+	height: 100vh;
+}
+
+.footer {
+	position: absolute;
+	bottom: 0;
+	background-color:  white;
+	width: 100vw;
+}
+
+.footer h3{
+	padding: 5px;
+	margin-left: 450px;
+	font-family: 'Roboto Mono', monospace;
+}
+
+
+.loginPage header{
+	height: 75px;
+}
+
+/*MEDIA QUERY*/
+
+@media only screen and (max-width: 750px){
+	.section1{
+		background: url(../images/mobilebg.jpg);
+		background-size: cover;
+		background-repeat: no-repeat;
+	}
+	.nav{
+		display: none;
+	}
+
+	.home-txt{
+		position: absolute;
+		top: 150px;
+		left: 50px;
+	}
+
+	#btn1{
+		left: 140px;
+		margin-top: 50px;
+	}
+}

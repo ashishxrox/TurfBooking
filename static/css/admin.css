@@ -1,0 +1,559 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	overflow-x: hidden;
+}
+
+
+.loginPage{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+
+.container{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.admin-form{
+	display: flex;
+	align-items: center;
+
+}
+
+.ad-login form{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	padding: 15px;
+}
+.btn{
+	padding-bottom: 35px;
+	overflow-y: hidden;
+}
+
+
+/******MEDIA QUERY******/
+@media only screen and (max-width: 750px){
+	.loginPage{
+		background: url(../images/mobilebg.jpg);
+		background-size: cover;
+		background-position: fixed;
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
+	}
+	.container{
+		top: 0;
+		left: 0;
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
+		height: 80%;
+		width: 100%;
+	}
+	.reg-txt{
+		font-size: 45px;
+	}
+	form label{
+		font-family: 'Marck Script', cursive;
+		font-weight: bolder;
+	}
+
+	form input{
+		font-size: 20px;
+	}
+	form .btn{
+		font-weight: bold;
+	}
+
+	.footer{
+		display: none;
+	}
+}
+
+
+
+
+
+/******ADMINPAGE************/
+
+
+.admin{
+	height: 100vh;
+	background: url(../images/admin.jpg);
+	background-size: cover;
+	background-position: fixed;
+	overflow-x: hidden;
+	display: flex;
+}
+
+header{
+	width: 15%;
+	height: 100vh;
+	background: rgba(255,255,255,0.1);
+	box-shadow: 0 25px 45px rgba(0,0,0,0.1);
+	border: 1px solid rgba(255,255,255,0.25);
+	border-right: 1px solid rgba(255,255,255,0.25);
+	border-bottom: 1px solid rgba(255,255,255,0.25);
+	border-radius: 10px;
+	overflow: hidden;
+	backdrop-filter: blur(25px);
+
+}
+
+
+header h1{
+	font-family: 'Marck Script', cursive;
+	font-size: 60px;
+	margin-left: 20px;
+}
+
+.user{
+	text-align: center;
+	margin-top: 10px;
+	font-family: 'Roboto Mono', monospace;
+	letter-spacing: -2px;
+}
+
+.user ion-icon{
+	font-size: 50px;
+}
+
+.nav{
+	text-align: center;
+	margin-top: 30px;
+}
+
+
+.nav ul li{
+	padding: 10px;
+	font-size: 25px;
+	transition: 1s;
+}
+
+.nav ul li a{
+	text-decoration: none;
+	color: black;
+}
+
+.icon{
+	font-size: 35px;
+}
+
+.ico-name{
+	transform: translateX(-50%);
+	opacity: 0;
+	transition: 1s;
+}
+
+.nav ul li:hover .ico-name{
+	transform: translateX(0);
+	opacity: 1;
+}
+
+.nav ul li:hover{
+	background-color: #38E54D;
+}
+
+.tab-cont{
+	width: 100%;
+}
+
+
+.table{
+	width: 100%;
+	height: 100px;
+	background: rgba(255,255,255,0.1);
+	box-shadow: 0 25px 45px rgba(0,0,0,0.1);
+	border: 1px solid rgba(255,255,255,0.25);
+	border-right: 1px solid rgba(255,255,255,0.25);
+	border-bottom: 1px solid rgba(255,255,255,0.25);
+	border-radius: 10px;
+	backdrop-filter: blur(5px);
+	font-family: 'Roboto Mono', monospace;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	margin-top: 25px;
+}
+#mtitle {
+	font-family: 'Marck Script', cursive;
+	font-weight: bolder;
+	font-size: 50px;
+	position: absolute;
+	top: 0;
+}
+
+
+.tab-title{
+	width: 85%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.today, .overall{
+	cursor: pointer;
+}
+
+#overall{
+	width: 85%;
+	/*position: absolute;*/
+	overflow-x: hidden;
+	transition: 1s;
+}	
+
+#today{
+	width: 85%;
+	transition: 1s;
+}
+
+.select{
+	position: absolute;
+	right: 10px;
+	bottom: 20px;
+	height: 10px;
+	width: 20%;
+	background-color: #38E54D;
+	border-radius: 15px;
+	transition: 1s;
+}
+
+
+.bcontainer{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	background-color: white;
+	width: 100%;
+	padding: 10px;
+	margin-right: 15px;
+	border-left: 2px solid black;
+	border-bottom: 2px solid black;
+	border-radius: 5px;
+	font-family: 'Roboto Mono', monospace;
+	overflow-x: hidden;
+}
+
+
+.tab-body{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	overflow-x: hidden;
+}
+
+
+
+.table .bcontent{
+	display: flex;
+	flex-direction: column;
+
+}
+
+
+.bname, .bdate{
+	display: flex;
+	flex-direction: row;
+	font-size: 18px;
+	font-weight: normal;
+	margin-bottom: 5px;
+}
+
+.bdate{
+	display: flex;
+	align-items: center;
+	width: 100%;
+}
+
+.bname ion-icon{
+	font-size: 25px;
+	color: #38E54D;
+}
+.bname h3{
+	position: relative;
+	left: 10px;
+	bottom: 0;
+	font-weight: normal;
+	font-size: 18px;
+}
+
+.bdate ion-icon{
+	font-size: 25px;
+	color: #38E54D;
+}
+
+
+.btime{
+	margin-left: 60px;
+}
+
+.bNo{
+	display: flex;
+	flex-direction: row;
+	position: relative;
+	top: 10px;
+}
+
+.bNo ion-icon{
+	font-size: 25px;
+	color: #38E54D;
+}
+
+.btn{
+	width: 75%;
+	height: 30px;
+	margin-top: 20px;
+	border: 2px solid #38E54D;
+	border-radius: 10px;
+	background-color: black;
+	cursor: pointer;
+	color: #38E54D;
+	font-family: 'Roboto Mono', monospace;
+	transition: 0.2s;
+}
+
+.btn:hover{
+	border: 2px solid black;
+	background-color: #38E54D;
+	color: black;
+}
+
+
+.cancel{
+	position: absolute;
+	z-index: 2000000;
+	height: 300px;
+	width: 300px;
+	background-color: white;
+	transform: translateX(-50%);
+	opacity: 0;
+	display: none;
+	transition: 1s;
+	/*display: flex;
+	flex-direction: column;*/
+}
+
+.cancel form{
+	position: relative;
+	top: 50px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.cancel form label{
+	font-family: 'Roboto Mono', monospace;
+	font-size: 18px;
+	margin-bottom: 15px;
+}
+
+.cancel form input{
+	margin-bottom: 15px;
+	cursor: pointer;
+}
+
+#can-close{
+	margin-top: 50px;
+	margin-left: 37px;
+	cursor: pointer;
+}
+
+.search{
+	position: absolute;
+	bottom: 50px;
+	z-index: 3000000;
+	height: 300px;
+	width: 300px;
+	background-color: white;
+	transform: translateX(-100%);
+	opacity: 0;
+	transition: 1s;
+}
+.search form{
+	position: relative;
+	top: 50px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.search form label{
+	font-family: 'Roboto Mono', monospace;
+	font-size: 18px;
+	margin-bottom: 15px;
+}
+
+.search form input{
+	margin-bottom: 15px;
+	cursor: pointer;
+}
+#search-close{
+	margin-top: 50px;
+	margin-left: 37px;
+	cursor: pointer;
+}
+
+
+
+.blur{
+	pointer-events: none;
+	opacity: 0.2;
+}
+
+.show{
+	display: block;
+	transform: translateX(0);
+	opacity: 1;
+}
+
+.hide{
+	transform: translateY(250%);
+	opacity: 0;
+}
+
+
+.result{
+	position: absolute;
+	z-index: 30000;
+	top: 15px;
+	left: 430px;
+	width: 440px;
+	height: 150px;
+	text-align: center;
+	overflow-y: hidden;
+
+	transition: 1s;
+}
+
+.result .flash-box{
+	font-size: 17px;
+	padding: 18px;
+	padding-top: 23px;
+	height: 100%;
+	width: 100%;
+	background-color: white;
+	color: #38E54D;
+	border: 2px solid black;
+	font-family: 'Roboto Mono', monospace;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-around;
+	
+}
+.no-exist{
+	position: absolute;
+	z-index: 30000;
+	top: 15px;
+	width: 400px;
+	height: 150px;
+	text-align: center;
+	transition: 1s;
+}
+
+.no-exist h3{
+	font-size: 17px;
+	padding: 18px;
+	padding-top: 23px;
+	height: 100%;
+	width: 100%;
+	background-color: white;
+	color: #38E54D;
+	border: 2px solid black;
+	font-family: 'Roboto Mono', monospace;
+}
+
+#res{
+	position: absolute;
+	z-index: 400000;
+	bottom: 20px;
+	left: 35px;
+	transition: 1s;
+}
+
+
+.tab-select{
+	transform: translateX(-385%);
+}
+
+.tab-hide{
+	transform: translateX(50%);
+	opacity: 0;
+}
+
+
+
+
+/*MEDIA QUERY*/
+
+@media only screen and (max-width: 750px){
+	.admin{
+		background: url(../images/mobilebg.jpg);
+		background-size: cover;
+		background-position: fixed;
+		background-repeat: no-repeat;
+		display: flex;
+		flex-direction: column;
+	}
+
+	header{
+		height: 100px;
+		width: 100%;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+	}
+	#brand{
+		display: none;
+	}
+
+	.user{
+		margin-left: 50px;
+		margin-bottom: 35px;
+	}
+
+	.nav{
+		margin-top: 0;
+	}
+
+	.nav ul{
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+
+	.nav ul li{
+		list-style-type: none;
+	}
+
+	.user{
+		font-size: 12px;
+	}
+	.user ion-icon{
+		display: none;
+	}
+
+	.result{
+		left: 60px;
+		top: 170px;
+	}
+	.select{
+		display: none;
+	}
+	.btime{
+		margin-left: 0;
+	}
+
+}

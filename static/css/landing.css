@@ -1,0 +1,548 @@
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+.landing{
+	height: 100vh;
+	background: url(../images/landingBg.jpg);
+	background-size: cover;
+	background-position: fixed;
+	display: flex;
+}
+
+header{
+	width: 15%;
+	height: 100vh;
+	background: rgba(255,255,255,0.1);
+	box-shadow: 0 25px 45px rgba(0,0,0,0.1);
+	border: 1px solid rgba(255,255,255,0.25);
+	border-right: 1px solid rgba(255,255,255,0.25);
+	border-bottom: 1px solid rgba(255,255,255,0.25);
+	border-radius: 10px;
+	overflow: hidden;
+	backdrop-filter: blur(25px);
+
+}
+
+header h1{
+	font-family: 'Marck Script', cursive;
+	font-size: 70px;
+	margin-left: 20px;
+}
+
+.user{
+	text-align: center;
+	margin-top: 20px;
+	font-family: 'Roboto Mono', monospace;
+	letter-spacing: -2px;
+}
+
+.user ion-icon{
+	font-size: 50px;
+}
+
+.nav{
+	text-align: center;
+	margin-top: 30px;
+}
+
+
+.nav ul li{
+	padding: 10px;
+	font-size: 25px;
+	transition: 1s;
+}
+
+.nav ul li a{
+	text-decoration: none;
+	color: black;
+}
+
+.icon{
+	font-size: 35px;
+}
+
+.ico-name{
+	transform: translateX(-50%);
+	opacity: 0;
+	transition: 1s;
+}
+
+.nav ul li:hover .ico-name{
+	transform: translateX(0);
+	opacity: 1;
+}
+
+.nav ul li:hover{
+	background-color: #38E54D;
+}
+
+.main{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	/*align-items: center;*/
+	position: relative;
+	left: 40px;
+}
+
+.container{
+/*	height: 400px;*/
+	width: 350px;
+	background: rgba(255,255,255,0.1);
+	box-shadow: 0 25px 45px rgba(0,0,0,0.1);
+	border: 1px solid rgba(255,255,255,0.25);
+	border-right: 1px solid rgba(255,255,255,0.25);
+	border-bottom: 1px solid rgba(255,255,255,0.25);
+	border-radius: 10px;
+	overflow: hidden;
+	backdrop-filter: blur(5px);
+	text-align: center;
+}
+
+.container h2{
+	font-family: 'Roboto Mono', monospace;
+	margin-top: 20px;
+}
+
+.container form{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	font-family: 'Roboto Mono', monospace;
+	padding: 15px;
+	margin-top: 10px;
+	font-weight: bold;
+}
+
+.container form h3{
+	margin-top: 20px;
+}
+
+
+
+.btn{
+	width: 75%;
+	height: 30px;
+	margin-top: 20px;
+	border: 2px solid #38E54D;
+	border-radius: 10px;
+	background-color: black;
+	color: #38E54D;
+	font-family: 'Roboto Mono', monospace;
+	transition: 0.2s;
+}
+
+.btn:hover{
+	border: 2px solid black;
+	background-color: #38E54D;
+	color: black;
+}
+
+.table{
+	position: relative;
+	left: 15px;
+	width: 450px;
+	text-align: center;
+	margin-left: 35px;
+	background: rgba(255,255,255,0.1);
+	box-shadow: 0 25px 45px rgba(0,0,0,0.1);
+	border: 1px solid rgba(255,255,255,0.25);
+	border-right: 1px solid rgba(255,255,255,0.25);
+	border-bottom: 1px solid rgba(255,255,255,0.25);
+	border-radius: 10px;
+	/*overflow: hidden;*/
+	backdrop-filter: blur(5px);
+	font-family: 'Roboto Mono', monospace;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
+.time{
+	width: 100%;
+	height: 60%;
+	margin-left: 20px;
+	overflow-x: scroll;
+}
+
+.time form{
+	width: 100%;
+	display: grid;
+	grid-template-columns: auto auto auto;
+}
+
+.time .btn{
+	grid-column-start: 2;
+	grid-column-end: 3;
+	width: 75%;
+	cursor: pointer;
+}
+.time form input[type="checkbox"]:not(:checked), 
+input[type="checkbox"]:checked {
+  position: absolute;
+  left: -9999%;
+}
+
+.time form input[type="checkbox"] + label {
+  display: inline-block;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  cursor: pointer;
+  border: 1px solid black;
+  color: black;
+  background-color: white;
+  margin-bottom: 10px;
+  font-size: 12px;
+}
+
+.time form input[type="checkbox"]:checked + label {
+  border: 1px solid white;
+  color: white;
+  background-color: black;
+}
+
+.bcontainer{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	background-color: white;
+	width: 100%;
+	padding: 10px;
+	/*margin: 5px;*/
+	margin-right: 15px;
+	border-left: 2px solid black;
+	border-bottom: 2px solid black;
+	border-radius: 5px;
+	font-family: 'Roboto Mono', monospace;
+	overflow-x: hidden;
+}
+#mtitle{
+	font-family: 'Marck Script', cursive;
+	font-size: 45px;
+	margin-bottom: 25px;
+}
+
+
+.tab-title{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 20px;
+
+}
+
+#tdate{
+	position: absolute;
+	left: 0;
+	font-family: 'Roboto Mono', monospace;
+	font-size: 20px;
+}
+#tBno{
+	position: absolute;
+	right: 0;
+	font-family: 'Roboto Mono', monospace;
+	font-size: 20px;
+}
+
+#ttime{
+	font-family: 'Roboto Mono', monospace;
+	font-size: 20px;
+}
+
+.table .bcontent{
+	display: flex;
+	flex-direction: column;
+
+}
+
+
+.bname, .bdate{
+	display: flex;
+	flex-direction: row;
+	font-size: 18px;
+	font-weight: normal;
+	margin-bottom: 5px;
+}
+
+.bname ion-icon{
+	font-size: 25px;
+	color: #38E54D;
+}
+.bname h3{
+	position: absolute;
+	left: 55px;
+	top: 45px;
+	font-weight: normal;
+	font-size: 18px;
+}
+
+.bdate ion-icon{
+	font-size: 25px;
+	color: #38E54D;
+}
+.bdate h4{
+	position: relative;
+	top: 4px;
+	left: 10px;
+	font-size: 12px;
+	font-weight: normal;
+}
+
+
+.btime{
+	margin-left: 15px;
+}
+
+.bNo{
+	display: flex;
+	flex-direction: row;
+	position: absolute;
+	right: 30px;
+}
+
+.bNo ion-icon{
+	font-size: 25px;
+	color: #38E54D;
+}
+
+.bNo h4{
+	position: relative;
+	bottom: -3px;
+	left: 5px;
+	font-weight: normal;
+}
+
+
+.cancel{
+	position: absolute;
+	z-index: 2000000;
+	height: 300px;
+	width: 300px;
+	background-color: white;
+	transform: translateX(-50%);
+	opacity: 0;
+	transition: 1s;
+	display: none;
+	/*display: flex;
+	flex-direction: column;*/
+}
+
+.cancel form{
+	position: relative;
+	top: 50px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.cancel form label{
+	font-family: 'Roboto Mono', monospace;
+	font-size: 18px;
+	margin-bottom: 15px;
+}
+
+.cancel form input{
+	margin-bottom: 15px;
+	cursor: pointer;
+}
+
+#can-close{
+	margin-top: 50px;
+	margin-left: 37px;
+	cursor: pointer;
+}
+
+.blur{
+	pointer-events: none;
+	opacity: 0.2;
+}
+
+.show{
+	transform: translateX(0);
+	opacity: 1;
+}
+
+
+.alert{
+	position: absolute;
+	z-index: 30000;
+	top: 15px;
+	left: 430px;
+	width: 340px;
+	height: 100px;
+	text-align: center;
+	transition: 1s;
+
+}
+
+.alert h3{
+	font-size: 17px;
+	padding: 18px;
+	padding-top: 23px;
+	height: 100%;
+	width: 100%;
+	background-color: white;
+	color: #38E54D;
+	border: 2px solid black;
+	font-family: 'Roboto Mono', monospace;
+}
+
+#close-alert{
+	position: absolute;
+	top: 35px;
+	left: 35px;
+	transition: 1s;
+}
+
+.hide{
+	opacity: 0
+}
+
+
+.disable{
+	opacity: 0.5;
+	pointer-events: none;
+}
+.log-nav{
+	display: none;
+}
+.log-btn{
+	display: none;
+}
+
+/*MEDIA QUERY*/
+
+@media only screen and (max-width: 750px){
+	.landing{
+		background: url(../images/mobilebg.jpg);
+		background-size: cover;
+		background-repeat: no-repeat;
+		display: flex;
+		flex-direction: column;
+		overflow-x: hidden;
+	}
+
+	.main{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+	.container{
+		margin-right: 100px;
+	}
+
+	.alert{
+		left: 130px;
+		top: -20px;
+	}
+	.table{
+		margin-left: 0;
+		margin-top: 40px;
+		left: -40px;
+		width: 100%;
+	}
+	.bdate{
+		font-size: 12px;
+	}
+	.bdate ion-icon{
+		font-size:15px;
+		margin-top: 8px;
+	}
+
+	.btime{
+		margin-left: 25px;
+	}
+
+
+	.bNo{
+		font-size: 12px;
+	}
+	.bNo ion-icon{
+		font-size: 15px;
+		margin-top: 8px;
+	}
+
+	header{
+		display: none;
+	}
+	.log-nav{
+		display: block;
+		position: absolute;
+		left: -15px;
+		z-index: 9999999;
+		height: 250px;
+		width: 200px;
+		background-color: black;
+		border-radius: 15px;
+		transform: translateX(-50%);
+		opacity: 0;
+		transition: 1s;
+	}
+
+	.log-user{
+		display: block;
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+	}
+	.log-user ion-icon{
+		color: white;
+		font-size: 35px;
+	}
+	.log-user h3{
+		display: block;
+		color: white;
+		font-size: 25px;
+		font-family: 'Roboto Mono', monospace;
+	}
+
+	.log-nav ul{
+		display: block;
+		margin-top: 20px;
+		margin-left: 20px;
+	}
+
+	.log-nav ul li{
+		color: white;
+		font-size: 20px;
+		margin-top: 10px;
+		font-family: 'Roboto Mono', monospace;
+	}
+	.log-nav ul li a{
+		text-decoration: none;
+		color: white;
+	}
+	.log-nav ul li ion-icon{
+		font-size: 45px;
+	}
+
+	.log-nav ul li a:hover{
+		color: #38E54D;
+	}
+
+	.log-btn{
+		display: block;
+		position: absolute;
+		top: 20px;
+		right: 40px;
+		z-index: 9999999;
+		
+	}
+
+	.log-btn ion-icon{
+		cursor: pointer;
+		font-size: 30px;
+	}
+	.show-nav{
+		opacity: 1;
+		transform: translateX(0);
+	}
+}

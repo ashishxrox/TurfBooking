@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital@1&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" href="../static/css/payment.css">
+	<title>Document</title>
+</head>
+<body>
+	<div class="container">
+		<h1>Proceed To Payment</h1>
+		<ul>
+			<li><ion-icon name="calendar-outline"></ion-icon>{{ data[0]}}</li>
+			<li><ion-icon name="time-outline"></ion-icon>{{ data[1]}}<br> To<br> {{ data[2]}}</li>
+			<li><ion-icon name="cash-outline"></ion-icon>{{ data[3]}}</li>
+		</ul>
+		<button id="rzp-button1" class="btn">Pay</button>
+		<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+		<script>
+		var options = {
+		    "key": "rzp_test_EOM7ebxof83w94", // Enter the Key ID generated from the Dashboard
+		    "amount": "{{ payment['amount'] }}", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+		    "currency": "INR",
+		    "name": "ABC SPORTS",
+		    "description": "Test Transaction",
+		    "callback_url": "/success",
+		    "image": "https://example.com/your_logo",
+		    "order_id": "{{ payment['order_id']}}", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+		    "redirect": "false",
+		    "theme": {
+		        "color": "#3399cc"
+		    }
+		};
+		var rzp1 = new Razorpay(options);
+		document.getElementById('rzp-button1').onclick = function(e){
+		    rzp1.open();
+		    e.preventDefault();
+		}
+		</script>
+	</div>
+
+	<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+	<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

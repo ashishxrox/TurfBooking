@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital@1&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="../static/css/admin.css">
+	<title>Document</title>
+</head>
+<body>
+	<div class="admin">
+		<header>
+			<h1 id="brand">Abc</h1>
+			<div class="user">
+				<h2><ion-icon name="person-outline"></ion-icon></h2>
+				<h2>Hello<br> Boss !</h2>
+			</div>
+			<div class="nav">
+				<nav>
+					<ul>
+						<li class="log" id="can"><a href="#" ><div class="icon"><ion-icon name="trash-outline"></ion-icon></div><div class="ico-name">Cancel</div></a></li>
+
+						<li class="log" id="sButton"><a href="#" ><div class="icon"><ion-icon name="search-outline"></ion-icon></div><div class="ico-name">Search</div></a></li>
+						
+						<li class="log"><a href="/ad_logout" ><div class="icon"><ion-icon name="log-out-outline"></ion-icon></div><div class="ico-name">Logout</div></a></li>
+
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+		<div class="result" id="result-box">
+			{% with messages = get_flashed_messages() %}
+				{% if messages %}
+					{% for message in messages %}
+						<div class="flash-box">
+							<h3>{{ message[0][1] }}</h3>
+							<h3>{{ message[0][2]}}:{{message[0][3] }}</h3>
+							<br>
+							<h3>{{ message[0][4] }}</h3>
+							<h3>{{ message[0][5] }}</h3>
+						</div>
+						<button class="btn" id="res">Close</button>
+					{% endfor %}
+				{% endif %}
+			{% endwith %}
+		</div>
+
+		<div class="cancel" id="can-box">
+			<form action="/cancel" method="post">
+				<label>Enter Booking Number</label>
+				<input type="number" name="cancel" required>
+				<input type="submit" name="csubmit" value="Go" class="btn">
+			</form>
+			<button class="btn" id="can-close">Close</button>
+		</div>
+		<div class="search" id="search">
+			
+			<form action="/search" method="post">
+				<label>Enter Booking Number</label>
+				<input type="number" name="search" required>
+				<input type="submit" name="ssubmit" value="Go" class="btn">
+			</form>
+			<button class="btn" id="search-close">Close</button>
+		</div>
+		<div class="tab-cont">
+			<div class="table" id="main">
+				<h2 id="mtitle">Bookings</h2>
+				<div class="tab-title">
+					<h2 class="today" id="today-title">TODAY</h2>
+					<h2 class="overall" id="overall-title">OVERALL</h2>
+
+				</div>
+				<div class="select" id="select"></div>
+			</div>
+			<div class="tab-body">
+				<div id="today">
+					<ul>
+						{% for entry in to %}
+						<li class="bcontainer">
+							<div class="bcontent">
+								<div class="bname">
+									<ion-icon name="person-outline"></ion-icon>
+									<h3>{{ entry[4] }}</h3>
+								</div>
+								<div class="bdate">
+									<ion-icon name="calendar-number-outline"></ion-icon>
+									<h4>{{ entry[1] }}</h4>
+									<ion-icon name="time-outline" class="btime" ></ion-icon>
+									<h4>{{ entry[2] }}:{{ entry[3] }}</h4>
+								</div>
+							</div>
+							<div class="bNo">
+								<ion-icon name="cash-outline"></ion-icon>
+								<h4>{{ entry[5] }}</h4>
+							</div>
+						</li>
+						{% endfor %}
+					</ul>
+
+				</div>
+
+				<div id="overall">
+					<ul>
+						{% for entry in ad %}
+						<li class="bcontainer">
+							<div class="bcontent">
+								<div class="bname">
+									<ion-icon name="person-outline"></ion-icon>
+									<h3>{{ entry[4] }}</h3>
+								</div>
+								<div class="bdate">
+									<ion-icon name="calendar-number-outline"></ion-icon>
+									<h4>{{ entry[1] }}</h4>
+									<ion-icon name="time-outline" class="btime" ></ion-icon>
+									<h4>{{ entry[2] }}:{{ entry[3] }}</h4>
+								</div>
+							</div>
+							<div class="bNo">
+								<ion-icon name="cash-outline"></ion-icon>
+								<h4>{{ entry[5] }}</h4>
+							</div>
+						</li>
+						{% endfor %}
+					</ul>
+				</div>
+			</div>
+		</div>
+
+
+	<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+	<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+	<script type="text/javascript" src="../static/js/admin.js"></script>
+</body>
+</html>

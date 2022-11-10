@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital@1&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="../static/css/landing.css">
+	<title>Document</title>
+</head>
+<body>
+	<div class="landing">
+		<div class="log-btn" id="nav-btn">
+			<ion-icon name="grid-outline"></ion-icon>
+		</div>
+		<div class="log-nav" id="nav-menu">
+			<div class="log-user">
+				<ion-icon name="person-outline"></ion-icon>
+				<h3>{{ u_name }}</h3>
+			</div>
+			<ul>
+				<li><a href="/logout" ><ion-icon name="log-out-outline"></ion-icon><span>Logout</span></a></li>
+				<li id = "close-nav"><a href="#" ><ion-icon name="arrow-forward-circle-outline"></ion-icon><span>Close</span></a></li>
+			</ul>
+		</div>
+
+		<header>
+			<h1>Abc</h1>
+			<div class="user">
+				<h2><ion-icon name="person-outline"></ion-icon></h2>
+				<h2>Hello<br> {{ u_name }} !</h2>
+			</div>
+			<div class="nav">
+				<nav>
+					<ul>
+						<!-- <li class="log" id="can"><a href="#" ><div class="icon"><ion-icon name="trash-outline"></ion-icon></div><div class="ico-name">Cancel</div></a></li>
+						 -->
+						<li class="log"><a href="/logout" ><div class="icon"><ion-icon name="log-out-outline"></ion-icon></div><div class="ico-name">Logout</div></a></li>
+
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+		<div class="cancel" id="can-box">
+			<form action="/cancel" method="post">
+				<label>Enter Booking Number</label>
+				<input type="number" name="cancel" required>
+				<input type="submit" name="csubmit" value="Go" class="btn">
+				
+			</form>
+			<button class="btn" id="can-close">Close</button>
+		</div>
+		<!-- <div class="alert" id="alBox">
+			{% with messages = get_flashed_messages() %}
+				{% if messages %}
+					{% for message in messages %}
+						<h3>{{ message }}</h3>
+						<button class="btn" id="close-alert">Close</button>
+					{% endfor %}
+				{% endif %}
+			{% endwith %}
+
+		</div> -->
+
+		<div class="main" id="main">
+
+			<div class="container">
+				<h2>Book Your Slot!!</h2>
+				<form method="post" action="/checkTime">
+					<label>Check Availability</label>
+					<input type="date" name="bdate" min = "{{ today }}"required>
+					<input type="submit" name="bsumit" class="btn" value="Check Availability">
+				</form>
+				<div class="time">
+					<form method="post" action="/book">
+						{% with messages  = get_flashed_messages() %}
+							{% if messages %}
+								{% for message in messages %}
+									<input type="checkbox" id="checkOne" name="checkOne" value="{{ message[0] }}" >
+									<label for="checkOne"
+									{% if message[0] in slot %} 
+										class="disable grid-item" 
+									{% else %}
+										class="grid-item"
+									{% endif %}>
+									{{ message[0][0] }}<br>To<br> {{ message[0][1] }}</label>
+									<input type="checkbox" id="checkTwo" name="checkOne" class="grid-item" value="{{ message[1] }}">
+									<label for="checkTwo"
+									{% if message[1] in slot %} 
+										class="disable grid-item" 
+									{% else %}
+										class="grid-item"
+									{% endif %}>
+									{{ message[1][0] }}<br>To<br> {{ message[1][1] }}</label>
+									<input type="checkbox" id="checkThree" name="checkOne" class="grid-item"
+									value="{{ message[2] }}">
+									<label for="checkThree"
+									{% if message[2] in slot %} 
+										class="disable grid-item" 
+									{% else %}
+										class="grid-item"
+									{% endif %}>
+									{{ message[2][0] }}<br>To<br> {{ message[2][1] }}</label>
+									<input type="checkbox" id="checkFour" name="checkOne" class="grid-item"
+									value="{{ message[3] }}">
+									<label for="checkFour"
+									{% if message[3] in slot %} 
+										class="disable grid-item" 
+									{% else %}
+										class="grid-item"
+									{% endif %}>
+									{{ message[3][0] }}<br>To<br> {{ message[3][1] }}</label>
+									<input type="checkbox" id="checkFive" name="checkOne" class="grid-item"
+									value="{{ message[4] }}">
+									<label for="checkFive"
+									{% if message[4] in slot %} 
+										class="disable grid-item" 
+									{% else %}
+										class="grid-item"
+									{% endif %}>
+									{{ message[4][0] }}<br>To<br> {{ message[4][1] }}</label>
+									<input type="checkbox" id="checkSix" name="checkOne" class="grid-item"
+									value="{{ message[5] }}">
+									<label for="checkSix"
+									{% if message[5] in slot %} 
+										class="disable grid-item" 
+									{% else %}
+										class="grid-item"
+									{% endif %}>
+									{{ message[5][0] }}<br>To<br> {{ message[5][1] }}</label>
+									<input type="checkbox" id="checkSeven" name="checkOne" class="grid-item"
+									value="{{ message[6] }}">
+									<label for="checkSeven"
+									{% if message[6] in slot %} 
+										class="disable grid-item" 
+									{% else %}
+										class="grid-item"
+									{% endif %}>
+									{{ message[6][0] }}<br>To<br> {{ message[6][1] }}</label>
+									<input type="checkbox" id="checkEight" name="checkOne" class="grid-item"
+									value="{{ message[7] }}">
+									<label for="checkEight"
+									{% if message[7] in slot %} 
+										class="disable grid-item" 
+									{% else %}
+										class="grid-item"
+									{% endif %}>
+									{{ message[7][0] }}<br>To<br> {{ message[7][1] }}</label>
+									<input type="checkbox" id="checkNine" name="checkOne" class="grid-item"
+									value="{{ message[8] }}">
+									<label for="checkNine"
+									{% if message[8] in slot %} 
+										class="disable grid-item" 
+									{% else %}
+										class="grid-item"
+									{% endif %}>
+									{{ message[8][0] }}<br>To<br> {{ message[8][1] }}</label>
+									<input type="checkbox" id="checkTen" name="checkOne" class="grid-item"
+									value="{{ message[9] }}">
+									<label for="checkTen"
+									{% if message[9] in slot %} 
+										class="disable grid-item" 
+									{% else %}
+										class="grid-item"
+									{% endif %}>
+									{{ message[9][0] }}<br>To<br> {{ message[9][1] }}</label>
+									<input type="checkbox" id="checkEleven" name="checkOne" class="grid-item"
+									value="{{ message[10] }}">
+									<label for="checkEleven"
+									{% if message[10] in slot %} 
+										class="disable grid-item" 
+									{% else %}
+										class="grid-item"
+									{% endif %}>
+									{{ message[10][0] }}<br>To<br> {{ message[10][1] }}</label>
+									<input type="checkbox" id="checkTwelve" name="checkOne" class="grid-item" value="{{ message[11] }}">
+									<label for="checkTwelve"
+									{% if message[11] in slot %} 
+										class="disable grid-item" 
+									{% else %}
+										class="grid-item"
+									{% endif %}>
+									{{ message[11][0] }}<br>To<br> {{ message[11][1] }}</label>
+									<input type="checkbox" id="checkThirteen" name="checkOne" class="grid-item" value="{{ message[12] }}">
+									<label for="checkThirteen"
+									{% if message[12] in slot %} 
+										class="disable grid-item" 
+									{% else %}
+										class="grid-item"
+									{% endif %}>
+									{{ message[12][0] }}<br>To<br> {{ message[12][1] }}</label>
+									<input type="checkbox" id="checkFourteen" name="checkOne" class="grid-item" value="{{ message[13] }}">
+									<label for="checkFourteen"
+									{% if message[13] in slot %} 
+										class="disable grid-item" 
+									{% else %}
+										class="grid-item"
+									{% endif %}>
+									{{ message[13][0] }}<br>To<br> {{ message[13][1] }}</label>
+									<input type="checkbox" id="checkFifteen" name="checkOne" class="grid-item" value="{{ message[14] }}">
+									<label for="checkFifteen"
+									{% if message[14] in slot %} 
+										class="disable grid-item" 
+									{% else %}
+										class="grid-item"
+									{% endif %}>
+									{{ message[14][0] }}<br>To<br> {{ message[14][1] }}</label>
+									<input type="checkbox" id="checkSixteen" name="checkOne" class="grid-item" value="{{ message[15] }}">
+									<label for="checkSixteen"
+									{% if message[15] in slot %} 
+										class="disable grid-item" 
+									{% else %}
+										class="grid-item"
+									{% endif %}>
+									{{ message[15][0] }}<br>To<br> {{ message[15][1] }}</label>
+									<input type="checkbox" id="checkSeventeen" name="checkOne" class="grid-item" value="{{ message[16] }}">
+									<label for="checkSeventeen"
+									{% if message[16] in slot %} 
+										class="disable grid-item" 
+									{% else %}
+										class="grid-item"
+									{% endif %}>
+									{{ message[16][0] }}<br>To<br> {{ message[16][1] }}</label>
+									<input type="checkbox" id="checkEighteen" name="checkOne" class="grid-item" value="{{ message[17] }}">
+									<label for="checkEighteen"
+									{% if message[17] in slot %} 
+										class="disable grid-item" 
+									{% else %}
+										class="grid-item"
+									{% endif %}>
+									{{ message[17][0] }}<br>To<br> {{ message[17][1] }}</label>
+									<input type="checkbox" id="checkNineteen" name="checkOne" class="grid-item" value="{{ message[18] }}">
+									<label for="checkNineteen"
+									{% if message[18] in slot %} 
+										class="disable grid-item" 
+									{% else %}
+										class="grid-item"
+									{% endif %}>
+									{{ message[18][0] }}<br>To<br> {{ message[18][1] }}</label>
+									<input type="checkbox" id="checkTwenty" name="checkOne" class="grid-item" value="{{ message[19] }}">
+									<label for="checkTwenty"
+									{% if message[19] in slot %} 
+										class="disable grid-item" 
+									{% else %}
+										class="grid-item"
+									{% endif %}>
+									{{ message[19][0] }}<br>To<br> {{ message[19][1] }}</label>
+									<input type="checkbox" id="checkTone" name="checkOne" class="grid-item" value="{{ message[20] }}">
+									<label for="checkTone"
+									{% if message[20] in slot %} 
+										class="disable grid-item" 
+									{% else %}
+										class="grid-item"
+									{% endif %}>
+									{{ message[20][0] }}<br>To<br> {{ message[20][1] }}</label>
+									<input type="checkbox" id="checkTtwo" name="checkOne" class="grid-item" value="{{ message[21] }}">
+									<label for="checkTtwo"
+									{% if message[21] in slot %} 
+										class="disable grid-item" 
+									{% else %}
+										class="grid-item"
+									{% endif %}>
+									{{ message[21][0] }}<br>To<br> {{ message[21][1] }}</label>
+									<input type="checkbox" id="checkTthree" name="checkOne" class="grid-item" value="{{ message[22] }}">
+									<label for="checkTthree"
+									{% if message[22] in slot %} 
+										class="disable grid-item" 
+									{% else %}
+										class="grid-item"
+									{% endif %}>
+									{{ message[22][0] }}<br>To<br> {{ message[22][1] }}</label>
+									<input type="checkbox" id="checkTfour" name="checkOne" class="grid-item" value="{{ message[23] }}">
+									<label for="checkTfour"
+									{% if message[23] in slot %} 
+										class="disable grid-item" 
+									{% else %}
+										class="grid-item"
+									{% endif %}>
+									{{ message[23][0] }}<br>To<br> {{ message[23][1] }}</label>
+									<input type="submit" name="bsubmit" value="Proceed" class="btn">
+								{% endfor %}
+							{% endif %}
+						{% endwith %}
+						
+					</form>
+				</div>
+			</div>
+			<div class="table">
+				<h2 id="mtitle">Bookings</h2>
+				<div class="tab-title">
+					<h2 id="tdate">DATE</h2>
+					<!-- <h2 id="ttime">TIME</h2> -->
+					<h2 id="tBno">BOOKING NO</h2>
+
+				</div>
+				<ul>
+					{% for entry in data %}
+					<li class="bcontainer">
+						<div class="bcontent">
+							<!-- <div class="bname">
+								<ion-icon name="person-outline"></ion-icon>
+								<h3>{{ entry[3] }}</h3>
+							</div> -->
+							<div class="bdate">
+								<ion-icon name="calendar-number-outline"></ion-icon>
+								<h4>{{ entry[1] }}</h4>
+								<ion-icon name="time-outline" class="btime" ></ion-icon>
+								<h4>{{ entry[2] }}:{{ entry[3] }}</h4>
+							</div>
+						</div>
+						<div class="bNo">
+							<ion-icon name="warning-outline"></ion-icon>
+							<h4>{{ entry[0] }}</h4>
+						</div>
+					</li>
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+	</div>
+
+
+	<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+	<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+	<script type="text/javascript" src="../static/js/landing.js"></script>
+</body>
+</html>

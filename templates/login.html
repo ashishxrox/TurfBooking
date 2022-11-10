@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital@1&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="../static/css/file1.css">
+	<link rel="stylesheet" type="text/css" href="../static/css/login.css">
+	<title>Login</title>
+</head>
+<body>
+	
+	<div class="loginPage">
+		<header>
+			<h1>Abc <span>Sports</span></h1>
+			<div class="nav">
+				<nav>
+					<ul>
+						<li class="log"><a href="/" ><div class="icon"><ion-icon name="home-outline"></ion-icon></div><div class="ico-name">Home</div></a></li>
+						<li class="log"><a href="#" ><div class="icon"><ion-icon name="information-circle-outline"></ion-icon></div><div class="ico-name">About</div></a></li>
+						<li class="log"><a href="#" ><div class="icon"><ion-icon name="person-circle-outline"></ion-icon></div><div class="ico-name">Login</div></a></li>
+						
+					</ul>
+				</nav>
+			</div>
+		</header>
+		<div class="mcont">
+			<div class="container">
+				<div class="reg-txt">
+					<h3 id="reg-title">Register</h3>
+					<h3 id="login-title">Login</h3>
+				</div>
+				<div class="selector" id="select">
+				</div>
+				<div class="forms" id="form">
+					<div class="register-form" id="reg-form">
+						<form method="post" action="/add_user">
+							<label>Name</label>
+							<input type="text" name="uusername" required>
+							<label>E-mail</label>
+							<input type="email" name="uemail" required>
+							<label>Password</label>
+							<input type="password" name="upassword" required>
+							<input type="submit" name="submit" class="btn" id="btn">
+						</form>
+					</div>
+					<div class="login-form" id="login-form">
+						<form method="post" action="/login_validation">
+							<label>Name</label>
+							<input type="text" name="username" required>
+							<label>Password</label>
+							<input type="password" name="password" required>
+							<input type="submit" name="submit1" class="btn" id="btn">
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer">
+			<h3>&copy Developed by Ashish Nair</h3>
+		</div>
+	</div>
+	<div class="alert">
+		{% with messages = get_flashed_messages() %}
+			{% if messages %}
+				{% for message in messages %}
+					<h3>{{ message }}</h3>
+				{% endfor %}
+			{% endif %}
+		{% endwith %}
+	</div>
+
+	<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+	<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+	<script type="text/javascript" src="../static/js/login.js"></script>
+</body>
+</html>

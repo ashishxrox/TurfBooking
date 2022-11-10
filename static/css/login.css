@@ -1,0 +1,210 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.mcont{
+	margin-top: 20px;
+	display: flex;
+	align-items: right;
+	justify-content: center;
+}
+
+.container{
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+	width: 300px;
+	background: white;
+	height: 300px;
+	align-items: center;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	background: rgba(255,255,255,0.1);
+	box-shadow: 0 25px 45px rgba(0,0,0,0.1);
+	border: 1px solid rgba(255,255,255,0.25);
+	border-right: 1px solid rgba(255,255,255,0.25);
+	border-bottom: 1px solid rgba(255,255,255,0.25);
+	border-radius: 10px;
+	overflow: hidden;
+	backdrop-filter: blur(25px);
+}
+.reg-txt{
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-around;
+	cursor: pointer;
+}
+.reg-txt h3{
+	padding: 5px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	font-family: 'Roboto Mono', monospace;
+}
+
+.forms{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	transform: translateX(85px);
+	transition: 1s
+}
+
+.forms label{
+	font-family: 'Roboto Mono', monospace;
+}
+
+
+
+.register-form form{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+}
+
+.register-form form label{
+	padding-top: 10px;
+}
+.register-form form input{
+	margin-top: 5px;
+}
+#btn{
+	margin-top: 15px;
+}
+.login-form form{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.login-form form label{
+	padding-top: 10px;
+}
+.login-form form input{
+	margin-top: 5px;
+}
+
+
+.login-form form{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	transition: 1s;
+}
+
+.login-form{
+	opacity: 0;
+	transition: 1s;
+}
+.register-form{
+	opacity: 1;
+	transition: 1s;
+}
+.opacity{
+	opacity: 1;
+}
+.rem-opac{
+	opacity: 0;
+}
+
+.log-form-display{
+	transform: translateX(-85px);
+}
+
+.selector{
+
+	height: 10px;
+	width: 50px;
+	background-color: #38E54D;
+	margin-top: -10px;
+	border-radius: 15px;
+	transform: translateX(-75px);
+	transition: 1s;
+}
+
+.move-selector{
+	transform: translateX(85px);
+}
+
+
+.alert{
+	position: absolute;
+	z-index: 10000;
+	top: 15px;
+	left: 430px;
+	width: 280px;
+	height: 100px;
+	text-align: center;
+
+}
+
+.alert h3{
+	font-size: 17px;
+	padding: 8px;
+	height: 100%;
+	width: 100%;
+	background-color: white;
+	color: #38E54D;
+	border: 2px solid black;
+	font-family: 'Roboto Mono', monospace;
+}
+
+/*MEDIA QUERY*/
+@media only screen and (max-width: 750px){
+	.loginPage{
+		background: url(../images/mobilebg.jpg);
+		background-size: cover;
+		background-repeat: no-repeat;
+		height: 100vh;
+	}
+	.nav{
+		display: none;
+	}
+	.footer{
+		display: none;
+	}
+	.container{
+		width: 100%;
+		height: 80%;
+	}
+
+	.reg-txt{
+		font-size: 20px;
+	}
+	form label, input{
+		font-size: 20px;
+	}
+	form {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.forms{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	transform: translateX(135px);
+	transition: 1s
+	}
+
+	.selector{
+		transform: translateX(-115px);
+	}
+
+	.move-selector{
+		transform: translateX(135px);
+	}
+
+	.log-form-display{
+	transform: translateX(-125px);
+	}
+
+	.alert{
+		top: 0px;
+		left: 120px;
+	}
+}
